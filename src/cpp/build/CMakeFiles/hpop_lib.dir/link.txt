@@ -1,2 +1,2 @@
-"/usr/bin/ar" qc libhpop_lib.a CMakeFiles/hpop_lib.dir/src/propagator.cpp.o CMakeFiles/hpop_lib.dir/src/gravity.cpp.o CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.o
+"/usr/bin/ar" qc libhpop_lib.a CMakeFiles/hpop_lib.dir/src/propagator.cpp.o CMakeFiles/hpop_lib.dir/src/gravity.cpp.o CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.o CMakeFiles/hpop_lib.dir/src/srp.cpp.o
 "/usr/bin/ranlib" libhpop_lib.a

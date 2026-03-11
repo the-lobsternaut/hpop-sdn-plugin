@@ -114,11 +114,26 @@ CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/atmosphere.cpp -o CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.s
 
+CMakeFiles/hpop_lib.dir/src/srp.cpp.o: CMakeFiles/hpop_lib.dir/flags.make
+CMakeFiles/hpop_lib.dir/src/srp.cpp.o: /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/srp.cpp
+CMakeFiles/hpop_lib.dir/src/srp.cpp.o: CMakeFiles/hpop_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/hpop_lib.dir/src/srp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hpop_lib.dir/src/srp.cpp.o -MF CMakeFiles/hpop_lib.dir/src/srp.cpp.o.d -o CMakeFiles/hpop_lib.dir/src/srp.cpp.o -c /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/srp.cpp
+
+CMakeFiles/hpop_lib.dir/src/srp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hpop_lib.dir/src/srp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/srp.cpp > CMakeFiles/hpop_lib.dir/src/srp.cpp.i
+
+CMakeFiles/hpop_lib.dir/src/srp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hpop_lib.dir/src/srp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/srp.cpp -o CMakeFiles/hpop_lib.dir/src/srp.cpp.s
+
 # Object files for target hpop_lib
 hpop_lib_OBJECTS = \
 "CMakeFiles/hpop_lib.dir/src/propagator.cpp.o" \
 "CMakeFiles/hpop_lib.dir/src/gravity.cpp.o" \
-"CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.o"
+"CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.o" \
+"CMakeFiles/hpop_lib.dir/src/srp.cpp.o"
 
 # External object files for target hpop_lib
 hpop_lib_EXTERNAL_OBJECTS =
@@ -126,9 +141,10 @@ hpop_lib_EXTERNAL_OBJECTS =
 libhpop_lib.a: CMakeFiles/hpop_lib.dir/src/propagator.cpp.o
 libhpop_lib.a: CMakeFiles/hpop_lib.dir/src/gravity.cpp.o
 libhpop_lib.a: CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.o
+libhpop_lib.a: CMakeFiles/hpop_lib.dir/src/srp.cpp.o
 libhpop_lib.a: CMakeFiles/hpop_lib.dir/build.make
 libhpop_lib.a: CMakeFiles/hpop_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libhpop_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libhpop_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/hpop_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hpop_lib.dir/link.txt --verbose=$(VERBOSE)
 

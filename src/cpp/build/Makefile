@@ -168,6 +168,19 @@ test_drag/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/build
 .PHONY : test_drag/fast
 
+#=============================================================================
+# Target rules for targets named test_srp
+
+# Build rule for target.
+test_srp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_srp
+.PHONY : test_srp
+
+# fast build rule for target.
+test_srp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/build
+.PHONY : test_srp/fast
+
 src/atmosphere.o: src/atmosphere.cpp.o
 .PHONY : src/atmosphere.o
 
@@ -240,6 +253,30 @@ src/propagator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/propagator.cpp.s
 .PHONY : src/propagator.cpp.s
 
+src/srp.o: src/srp.cpp.o
+.PHONY : src/srp.o
+
+# target to build an object file
+src/srp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/srp.cpp.o
+.PHONY : src/srp.cpp.o
+
+src/srp.i: src/srp.cpp.i
+.PHONY : src/srp.i
+
+# target to preprocess a source file
+src/srp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/srp.cpp.i
+.PHONY : src/srp.cpp.i
+
+src/srp.s: src/srp.cpp.s
+.PHONY : src/srp.s
+
+# target to generate assembly for a file
+src/srp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/srp.cpp.s
+.PHONY : src/srp.cpp.s
+
 tests/test_drag.o: tests/test_drag.cpp.o
 .PHONY : tests/test_drag.o
 
@@ -288,6 +325,30 @@ tests/test_geopotential.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/tests/test_geopotential.cpp.s
 .PHONY : tests/test_geopotential.cpp.s
 
+tests/test_srp.o: tests/test_srp.cpp.o
+.PHONY : tests/test_srp.o
+
+# target to build an object file
+tests/test_srp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/tests/test_srp.cpp.o
+.PHONY : tests/test_srp.cpp.o
+
+tests/test_srp.i: tests/test_srp.cpp.i
+.PHONY : tests/test_srp.i
+
+# target to preprocess a source file
+tests/test_srp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/tests/test_srp.cpp.i
+.PHONY : tests/test_srp.cpp.i
+
+tests/test_srp.s: tests/test_srp.cpp.s
+.PHONY : tests/test_srp.s
+
+# target to generate assembly for a file
+tests/test_srp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/tests/test_srp.cpp.s
+.PHONY : tests/test_srp.cpp.s
+
 tests/test_twobody.o: tests/test_twobody.cpp.o
 .PHONY : tests/test_twobody.o
 
@@ -323,6 +384,7 @@ help:
 	@echo "... hpop_lib"
 	@echo "... test_drag"
 	@echo "... test_geopotential"
+	@echo "... test_srp"
 	@echo "... test_twobody"
 	@echo "... src/atmosphere.o"
 	@echo "... src/atmosphere.i"
@@ -333,12 +395,18 @@ help:
 	@echo "... src/propagator.o"
 	@echo "... src/propagator.i"
 	@echo "... src/propagator.s"
+	@echo "... src/srp.o"
+	@echo "... src/srp.i"
+	@echo "... src/srp.s"
 	@echo "... tests/test_drag.o"
 	@echo "... tests/test_drag.i"
 	@echo "... tests/test_drag.s"
 	@echo "... tests/test_geopotential.o"
 	@echo "... tests/test_geopotential.i"
 	@echo "... tests/test_geopotential.s"
+	@echo "... tests/test_srp.o"
+	@echo "... tests/test_srp.i"
+	@echo "... tests/test_srp.s"
 	@echo "... tests/test_twobody.o"
 	@echo "... tests/test_twobody.i"
 	@echo "... tests/test_twobody.s"

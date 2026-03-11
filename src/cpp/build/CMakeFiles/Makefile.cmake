@@ -52,4 +52,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_twobody.dir/DependInfo.cmake"
   "CMakeFiles/test_geopotential.dir/DependInfo.cmake"
   "CMakeFiles/test_drag.dir/DependInfo.cmake"
+  "CMakeFiles/test_srp.dir/DependInfo.cmake"
   )
