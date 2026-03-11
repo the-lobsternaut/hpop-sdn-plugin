@@ -16,6 +16,7 @@ endif()
 # HPOP library
 set(HPOP_SOURCES
     src/propagator.cpp
+    src/gravity.cpp
 )
 
 add_library(hpop_lib STATIC ${HPOP_SOURCES})
@@ -25,4 +26,7 @@ target_include_directories(hpop_lib PUBLIC include)
 if(NOT EMSCRIPTEN)
     add_executable(test_twobody tests/test_twobody.cpp)
     target_link_libraries(test_twobody hpop_lib)
+
+    add_executable(test_geopotential tests/test_geopotential.cpp)
+    target_link_libraries(test_geopotential hpop_lib)
 endif()

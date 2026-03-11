@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/hpop_lib.dir/src/gravity.cpp.o"
+  "CMakeFiles/hpop_lib.dir/src/gravity.cpp.o.d"
   "CMakeFiles/hpop_lib.dir/src/propagator.cpp.o"
   "CMakeFiles/hpop_lib.dir/src/propagator.cpp.o.d"
   "libhpop_lib.a"

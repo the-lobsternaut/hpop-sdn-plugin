@@ -65,11 +65,13 @@ CMAKE_BINARY_DIR = /Users/lobsternaut/software/space-data-network-plugins/hpop-s
 # The main recursive "all" target.
 all: CMakeFiles/hpop_lib.dir/all
 all: CMakeFiles/test_twobody.dir/all
+all: CMakeFiles/test_geopotential.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/hpop_lib.dir/codegen
 codegen: CMakeFiles/test_twobody.dir/codegen
+codegen: CMakeFiles/test_geopotential.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -79,6 +81,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/hpop_lib.dir/clean
 clean: CMakeFiles/test_twobody.dir/clean
+clean: CMakeFiles/test_geopotential.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -88,12 +91,12 @@ clean: CMakeFiles/test_twobody.dir/clean
 CMakeFiles/hpop_lib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2 "Built target hpop_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2,3 "Built target hpop_lib"
 .PHONY : CMakeFiles/hpop_lib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hpop_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hpop_lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/hpop_lib.dir/rule
@@ -105,7 +108,7 @@ hpop_lib: CMakeFiles/hpop_lib.dir/rule
 # codegen rule for target.
 CMakeFiles/hpop_lib.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2 "Finished codegen for target hpop_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target hpop_lib"
 .PHONY : CMakeFiles/hpop_lib.dir/codegen
 
 # clean rule for target.
@@ -120,12 +123,12 @@ CMakeFiles/hpop_lib.dir/clean:
 CMakeFiles/test_twobody.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=3,4 "Built target test_twobody"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=6,7 "Built target test_twobody"
 .PHONY : CMakeFiles/test_twobody.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_twobody.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_twobody.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_twobody.dir/rule
@@ -137,13 +140,45 @@ test_twobody: CMakeFiles/test_twobody.dir/rule
 # codegen rule for target.
 CMakeFiles/test_twobody.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=3,4 "Finished codegen for target test_twobody"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=6,7 "Finished codegen for target test_twobody"
 .PHONY : CMakeFiles/test_twobody.dir/codegen
 
 # clean rule for target.
 CMakeFiles/test_twobody.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/clean
 .PHONY : CMakeFiles/test_twobody.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_geopotential.dir
+
+# All Build rule for target.
+CMakeFiles/test_geopotential.dir/all: CMakeFiles/hpop_lib.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=4,5 "Built target test_geopotential"
+.PHONY : CMakeFiles/test_geopotential.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_geopotential.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_geopotential.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_geopotential.dir/rule
+
+# Convenience name for target.
+test_geopotential: CMakeFiles/test_geopotential.dir/rule
+.PHONY : test_geopotential
+
+# codegen rule for target.
+CMakeFiles/test_geopotential.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=4,5 "Finished codegen for target test_geopotential"
+.PHONY : CMakeFiles/test_geopotential.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_geopotential.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/clean
+.PHONY : CMakeFiles/test_geopotential.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

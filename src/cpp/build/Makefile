@@ -142,6 +142,43 @@ test_twobody/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/build
 .PHONY : test_twobody/fast
 
+#=============================================================================
+# Target rules for targets named test_geopotential
+
+# Build rule for target.
+test_geopotential: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_geopotential
+.PHONY : test_geopotential
+
+# fast build rule for target.
+test_geopotential/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/build
+.PHONY : test_geopotential/fast
+
+src/gravity.o: src/gravity.cpp.o
+.PHONY : src/gravity.o
+
+# target to build an object file
+src/gravity.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/gravity.cpp.o
+.PHONY : src/gravity.cpp.o
+
+src/gravity.i: src/gravity.cpp.i
+.PHONY : src/gravity.i
+
+# target to preprocess a source file
+src/gravity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/gravity.cpp.i
+.PHONY : src/gravity.cpp.i
+
+src/gravity.s: src/gravity.cpp.s
+.PHONY : src/gravity.s
+
+# target to generate assembly for a file
+src/gravity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/gravity.cpp.s
+.PHONY : src/gravity.cpp.s
+
 src/propagator.o: src/propagator.cpp.o
 .PHONY : src/propagator.o
 
@@ -165,6 +202,30 @@ src/propagator.s: src/propagator.cpp.s
 src/propagator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/propagator.cpp.s
 .PHONY : src/propagator.cpp.s
+
+tests/test_geopotential.o: tests/test_geopotential.cpp.o
+.PHONY : tests/test_geopotential.o
+
+# target to build an object file
+tests/test_geopotential.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/tests/test_geopotential.cpp.o
+.PHONY : tests/test_geopotential.cpp.o
+
+tests/test_geopotential.i: tests/test_geopotential.cpp.i
+.PHONY : tests/test_geopotential.i
+
+# target to preprocess a source file
+tests/test_geopotential.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/tests/test_geopotential.cpp.i
+.PHONY : tests/test_geopotential.cpp.i
+
+tests/test_geopotential.s: tests/test_geopotential.cpp.s
+.PHONY : tests/test_geopotential.s
+
+# target to generate assembly for a file
+tests/test_geopotential.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/tests/test_geopotential.cpp.s
+.PHONY : tests/test_geopotential.cpp.s
 
 tests/test_twobody.o: tests/test_twobody.cpp.o
 .PHONY : tests/test_twobody.o
@@ -199,10 +260,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hpop_lib"
+	@echo "... test_geopotential"
 	@echo "... test_twobody"
+	@echo "... src/gravity.o"
+	@echo "... src/gravity.i"
+	@echo "... src/gravity.s"
 	@echo "... src/propagator.o"
 	@echo "... src/propagator.i"
 	@echo "... src/propagator.s"
+	@echo "... tests/test_geopotential.o"
+	@echo "... tests/test_geopotential.i"
+	@echo "... tests/test_geopotential.s"
 	@echo "... tests/test_twobody.o"
 	@echo "... tests/test_twobody.i"
 	@echo "... tests/test_twobody.s"
