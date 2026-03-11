@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "pluginId": "hpop-propagator",
+  "pluginType": "propagator",
+  "vendorId": "the-lobsternaut",
+  "name": "HPOP Propagator Plugin",
+  "version": "0.1.0",
+  "description": "High Precision Orbit Propagator with configurable force models. Cowell numerical integration with EGM-96 geopotential, JB2008/NRLMSISE-00 atmospheric drag, solar radiation pressure, and Sun/Moon third-body perturbations. SP-compatible VCM/OCM output.",
+  "license": "Apache-2.0",
+  "capabilities": {
+    "parse": false,
+    "convert": false,
+    "process": true,
+    "streaming": false
+  },
+  "ports": {
+    "inputs": [
+      {
+        "name": "initial_state",
+        "description": "Initial orbital state (Cartesian or Keplerian)",
+        "schema": "VCM",
+        "fileId": "$VCM",
+        "required": true
+      },
+      {
+        "name": "force_config",
+        "description": "Force model configuration (gravity degree/order, atmosphere model, etc.)",
+        "schema": "PropagatorConfig",
+        "required": false
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ephemeris",
+        "description": "Propagated state time-series",
+        "schema": "OCM",
+        "fileId": "$OCM"
+      },
+      {
+        "name": "final_state",
+        "description": "Final state with covariance",
+        "schema": "VCM",
+        "fileId": "$VCM"
+      }
+    ]
+  },
+  "wasm": {
+    "exportName": "HPOP_WASM",
+    "initialMemoryMB": 64,
+    "maxMemoryMB": 512
+  }
+}

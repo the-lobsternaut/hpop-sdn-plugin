@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

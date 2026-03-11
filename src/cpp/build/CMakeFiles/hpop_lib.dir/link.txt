@@ -1,0 +1,2 @@
+"/usr/bin/ar" qc libhpop_lib.a CMakeFiles/hpop_lib.dir/src/propagator.cpp.o
+"/usr/bin/ranlib" libhpop_lib.a
