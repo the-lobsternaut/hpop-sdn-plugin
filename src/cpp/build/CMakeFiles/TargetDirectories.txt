@@ -1,5 +1,6 @@
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/hpop_lib.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_twobody.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_geopotential.dir
+/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_drag.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/edit_cache.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/rebuild_cache.dir

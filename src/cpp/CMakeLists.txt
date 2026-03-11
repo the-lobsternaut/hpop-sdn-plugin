@@ -17,6 +17,7 @@ endif()
 set(HPOP_SOURCES
     src/propagator.cpp
     src/gravity.cpp
+    src/atmosphere.cpp
 )
 
 add_library(hpop_lib STATIC ${HPOP_SOURCES})
@@ -29,4 +30,7 @@ if(NOT EMSCRIPTEN)
 
     add_executable(test_geopotential tests/test_geopotential.cpp)
     target_link_libraries(test_geopotential hpop_lib)
+
+    add_executable(test_drag tests/test_drag.cpp)
+    target_link_libraries(test_drag hpop_lib)
 endif()

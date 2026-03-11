@@ -155,6 +155,43 @@ test_geopotential/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/build
 .PHONY : test_geopotential/fast
 
+#=============================================================================
+# Target rules for targets named test_drag
+
+# Build rule for target.
+test_drag: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_drag
+.PHONY : test_drag
+
+# fast build rule for target.
+test_drag/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/build
+.PHONY : test_drag/fast
+
+src/atmosphere.o: src/atmosphere.cpp.o
+.PHONY : src/atmosphere.o
+
+# target to build an object file
+src/atmosphere.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.o
+.PHONY : src/atmosphere.cpp.o
+
+src/atmosphere.i: src/atmosphere.cpp.i
+.PHONY : src/atmosphere.i
+
+# target to preprocess a source file
+src/atmosphere.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.i
+.PHONY : src/atmosphere.cpp.i
+
+src/atmosphere.s: src/atmosphere.cpp.s
+.PHONY : src/atmosphere.s
+
+# target to generate assembly for a file
+src/atmosphere.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/atmosphere.cpp.s
+.PHONY : src/atmosphere.cpp.s
+
 src/gravity.o: src/gravity.cpp.o
 .PHONY : src/gravity.o
 
@@ -202,6 +239,30 @@ src/propagator.s: src/propagator.cpp.s
 src/propagator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/propagator.cpp.s
 .PHONY : src/propagator.cpp.s
+
+tests/test_drag.o: tests/test_drag.cpp.o
+.PHONY : tests/test_drag.o
+
+# target to build an object file
+tests/test_drag.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/tests/test_drag.cpp.o
+.PHONY : tests/test_drag.cpp.o
+
+tests/test_drag.i: tests/test_drag.cpp.i
+.PHONY : tests/test_drag.i
+
+# target to preprocess a source file
+tests/test_drag.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/tests/test_drag.cpp.i
+.PHONY : tests/test_drag.cpp.i
+
+tests/test_drag.s: tests/test_drag.cpp.s
+.PHONY : tests/test_drag.s
+
+# target to generate assembly for a file
+tests/test_drag.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/tests/test_drag.cpp.s
+.PHONY : tests/test_drag.cpp.s
 
 tests/test_geopotential.o: tests/test_geopotential.cpp.o
 .PHONY : tests/test_geopotential.o
@@ -260,14 +321,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hpop_lib"
+	@echo "... test_drag"
 	@echo "... test_geopotential"
 	@echo "... test_twobody"
+	@echo "... src/atmosphere.o"
+	@echo "... src/atmosphere.i"
+	@echo "... src/atmosphere.s"
 	@echo "... src/gravity.o"
 	@echo "... src/gravity.i"
 	@echo "... src/gravity.s"
 	@echo "... src/propagator.o"
 	@echo "... src/propagator.i"
 	@echo "... src/propagator.s"
+	@echo "... tests/test_drag.o"
+	@echo "... tests/test_drag.i"
+	@echo "... tests/test_drag.s"
 	@echo "... tests/test_geopotential.o"
 	@echo "... tests/test_geopotential.i"
 	@echo "... tests/test_geopotential.s"
