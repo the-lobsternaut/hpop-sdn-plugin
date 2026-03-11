@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hpop_lib.dir/src/propagator.cpp.o.d"
   "CMakeFiles/hpop_lib.dir/src/srp.cpp.o"
   "CMakeFiles/hpop_lib.dir/src/srp.cpp.o.d"
+  "CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.o"
+  "CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.o.d"
   "libhpop_lib.a"
   "libhpop_lib.pdb"
 )

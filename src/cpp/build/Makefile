@@ -181,6 +181,19 @@ test_srp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/build
 .PHONY : test_srp/fast
 
+#=============================================================================
+# Target rules for targets named test_thirdbody
+
+# Build rule for target.
+test_thirdbody: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_thirdbody
+.PHONY : test_thirdbody
+
+# fast build rule for target.
+test_thirdbody/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/build
+.PHONY : test_thirdbody/fast
+
 src/atmosphere.o: src/atmosphere.cpp.o
 .PHONY : src/atmosphere.o
 
@@ -277,6 +290,30 @@ src/srp.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/srp.cpp.s
 .PHONY : src/srp.cpp.s
 
+src/thirdbody.o: src/thirdbody.cpp.o
+.PHONY : src/thirdbody.o
+
+# target to build an object file
+src/thirdbody.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.o
+.PHONY : src/thirdbody.cpp.o
+
+src/thirdbody.i: src/thirdbody.cpp.i
+.PHONY : src/thirdbody.i
+
+# target to preprocess a source file
+src/thirdbody.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.i
+.PHONY : src/thirdbody.cpp.i
+
+src/thirdbody.s: src/thirdbody.cpp.s
+.PHONY : src/thirdbody.s
+
+# target to generate assembly for a file
+src/thirdbody.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.s
+.PHONY : src/thirdbody.cpp.s
+
 tests/test_drag.o: tests/test_drag.cpp.o
 .PHONY : tests/test_drag.o
 
@@ -349,6 +386,30 @@ tests/test_srp.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/tests/test_srp.cpp.s
 .PHONY : tests/test_srp.cpp.s
 
+tests/test_thirdbody.o: tests/test_thirdbody.cpp.o
+.PHONY : tests/test_thirdbody.o
+
+# target to build an object file
+tests/test_thirdbody.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/tests/test_thirdbody.cpp.o
+.PHONY : tests/test_thirdbody.cpp.o
+
+tests/test_thirdbody.i: tests/test_thirdbody.cpp.i
+.PHONY : tests/test_thirdbody.i
+
+# target to preprocess a source file
+tests/test_thirdbody.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/tests/test_thirdbody.cpp.i
+.PHONY : tests/test_thirdbody.cpp.i
+
+tests/test_thirdbody.s: tests/test_thirdbody.cpp.s
+.PHONY : tests/test_thirdbody.s
+
+# target to generate assembly for a file
+tests/test_thirdbody.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/tests/test_thirdbody.cpp.s
+.PHONY : tests/test_thirdbody.cpp.s
+
 tests/test_twobody.o: tests/test_twobody.cpp.o
 .PHONY : tests/test_twobody.o
 
@@ -385,6 +446,7 @@ help:
 	@echo "... test_drag"
 	@echo "... test_geopotential"
 	@echo "... test_srp"
+	@echo "... test_thirdbody"
 	@echo "... test_twobody"
 	@echo "... src/atmosphere.o"
 	@echo "... src/atmosphere.i"
@@ -398,6 +460,9 @@ help:
 	@echo "... src/srp.o"
 	@echo "... src/srp.i"
 	@echo "... src/srp.s"
+	@echo "... src/thirdbody.o"
+	@echo "... src/thirdbody.i"
+	@echo "... src/thirdbody.s"
 	@echo "... tests/test_drag.o"
 	@echo "... tests/test_drag.i"
 	@echo "... tests/test_drag.s"
@@ -407,6 +472,9 @@ help:
 	@echo "... tests/test_srp.o"
 	@echo "... tests/test_srp.i"
 	@echo "... tests/test_srp.s"
+	@echo "... tests/test_thirdbody.o"
+	@echo "... tests/test_thirdbody.i"
+	@echo "... tests/test_thirdbody.s"
 	@echo "... tests/test_twobody.o"
 	@echo "... tests/test_twobody.i"
 	@echo "... tests/test_twobody.s"

@@ -19,6 +19,7 @@ set(HPOP_SOURCES
     src/gravity.cpp
     src/atmosphere.cpp
     src/srp.cpp
+    src/thirdbody.cpp
 )
 
 add_library(hpop_lib STATIC ${HPOP_SOURCES})
@@ -37,4 +38,7 @@ if(NOT EMSCRIPTEN)
 
     add_executable(test_srp tests/test_srp.cpp)
     target_link_libraries(test_srp hpop_lib)
+
+    add_executable(test_thirdbody tests/test_thirdbody.cpp)
+    target_link_libraries(test_thirdbody hpop_lib)
 endif()
