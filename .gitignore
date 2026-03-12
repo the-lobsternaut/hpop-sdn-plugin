@@ -1,0 +1,4 @@
+deps/emsdk/upstream/
+deps/emsdk/downloads/
+deps/emsdk/node/
+src/cpp/build-wasm/

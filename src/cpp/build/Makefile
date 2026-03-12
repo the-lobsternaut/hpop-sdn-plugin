@@ -194,6 +194,19 @@ test_thirdbody/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/build
 .PHONY : test_thirdbody/fast
 
+#=============================================================================
+# Target rules for targets named test_wasm_api
+
+# Build rule for target.
+test_wasm_api: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_wasm_api
+.PHONY : test_wasm_api
+
+# fast build rule for target.
+test_wasm_api/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/build
+.PHONY : test_wasm_api/fast
+
 src/atmosphere.o: src/atmosphere.cpp.o
 .PHONY : src/atmosphere.o
 
@@ -434,6 +447,30 @@ tests/test_twobody.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/tests/test_twobody.cpp.s
 .PHONY : tests/test_twobody.cpp.s
 
+tests/test_wasm_api.o: tests/test_wasm_api.cpp.o
+.PHONY : tests/test_wasm_api.o
+
+# target to build an object file
+tests/test_wasm_api.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/tests/test_wasm_api.cpp.o
+.PHONY : tests/test_wasm_api.cpp.o
+
+tests/test_wasm_api.i: tests/test_wasm_api.cpp.i
+.PHONY : tests/test_wasm_api.i
+
+# target to preprocess a source file
+tests/test_wasm_api.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/tests/test_wasm_api.cpp.i
+.PHONY : tests/test_wasm_api.cpp.i
+
+tests/test_wasm_api.s: tests/test_wasm_api.cpp.s
+.PHONY : tests/test_wasm_api.s
+
+# target to generate assembly for a file
+tests/test_wasm_api.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/tests/test_wasm_api.cpp.s
+.PHONY : tests/test_wasm_api.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -448,6 +485,7 @@ help:
 	@echo "... test_srp"
 	@echo "... test_thirdbody"
 	@echo "... test_twobody"
+	@echo "... test_wasm_api"
 	@echo "... src/atmosphere.o"
 	@echo "... src/atmosphere.i"
 	@echo "... src/atmosphere.s"
@@ -478,6 +516,9 @@ help:
 	@echo "... tests/test_twobody.o"
 	@echo "... tests/test_twobody.i"
 	@echo "... tests/test_twobody.s"
+	@echo "... tests/test_wasm_api.o"
+	@echo "... tests/test_wasm_api.i"
+	@echo "... tests/test_wasm_api.s"
 .PHONY : help
 
 

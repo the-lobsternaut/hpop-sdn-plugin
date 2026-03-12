@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -O3 -flto -ffast-math -march=native -mtune=native -flto=thin -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_wasm_api.dir/tests/test_wasm_api.cpp.o -o test_wasm_api  libhpop_lib.a

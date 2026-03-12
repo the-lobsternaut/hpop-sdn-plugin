@@ -69,6 +69,7 @@ all: CMakeFiles/test_geopotential.dir/all
 all: CMakeFiles/test_drag.dir/all
 all: CMakeFiles/test_srp.dir/all
 all: CMakeFiles/test_thirdbody.dir/all
+all: CMakeFiles/test_wasm_api.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
@@ -78,6 +79,7 @@ codegen: CMakeFiles/test_geopotential.dir/codegen
 codegen: CMakeFiles/test_drag.dir/codegen
 codegen: CMakeFiles/test_srp.dir/codegen
 codegen: CMakeFiles/test_thirdbody.dir/codegen
+codegen: CMakeFiles/test_wasm_api.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -91,6 +93,7 @@ clean: CMakeFiles/test_geopotential.dir/clean
 clean: CMakeFiles/test_drag.dir/clean
 clean: CMakeFiles/test_srp.dir/clean
 clean: CMakeFiles/test_thirdbody.dir/clean
+clean: CMakeFiles/test_wasm_api.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -284,6 +287,38 @@ CMakeFiles/test_thirdbody.dir/codegen:
 CMakeFiles/test_thirdbody.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/clean
 .PHONY : CMakeFiles/test_thirdbody.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_wasm_api.dir
+
+# All Build rule for target.
+CMakeFiles/test_wasm_api.dir/all: CMakeFiles/hpop_lib.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=17,18 "Built target test_wasm_api"
+.PHONY : CMakeFiles/test_wasm_api.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_wasm_api.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_wasm_api.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_wasm_api.dir/rule
+
+# Convenience name for target.
+test_wasm_api: CMakeFiles/test_wasm_api.dir/rule
+.PHONY : test_wasm_api
+
+# codegen rule for target.
+CMakeFiles/test_wasm_api.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=17,18 "Finished codegen for target test_wasm_api"
+.PHONY : CMakeFiles/test_wasm_api.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_wasm_api.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/clean
+.PHONY : CMakeFiles/test_wasm_api.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
