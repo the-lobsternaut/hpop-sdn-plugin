@@ -26,6 +26,7 @@
 #include "hpop/atmosphere.h"
 #include "hpop/srp.h"
 #include "hpop/thirdbody.h"
+#include "hpop/vcm_input.h"
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten/emscripten.h>
@@ -379,14 +380,44 @@ static std::string get_force_models() {
 extern "C" {
 
 /**
- * Parse JSON propagation request → OEM FlatBuffer binary
+ * Parse VCM (FlatBuffer or JSON) → propagate → OEM FlatBuffer binary
+ * Accepts:
+ *   - VCM FlatBuffer binary ($VCM file identifier)
+ *   - JSON (VCM-schema or simplified propagation format)
  */
 EMSCRIPTEN_KEEPALIVE
 int32_t parse(const char* input, size_t input_len,
               uint8_t* output, size_t output_len) {
     try {
-        std::string json(input, input_len);
-        std::string fb = propagate_json(json);
+        // Auto-detect: VCM FlatBuffer or JSON
+        auto parsed = parse_vcm(reinterpret_cast<const uint8_t*>(input), input_len);
+        if (!parsed.valid) {
+            // Fallback to legacy JSON propagation
+            std::string json(input, input_len);
+            std::string fb = propagate_json(json);
+            if (fb.size() > output_len) return -2;
+            std::memcpy(output, fb.data(), fb.size());
+            return static_cast<int32_t>(fb.size());
+        }
+
+        // Build propagation request from parsed VCM
+        PropagationRequest req;
+        req.initial_state = parsed.initial_state;
+        req.epoch_jd0 = parsed.epoch_jd;
+        req.duration_days = parsed.duration_days;
+        req.step_seconds = parsed.step_seconds;
+        req.spacecraft = parsed.spacecraft;
+        req.use_twobody = parsed.use_twobody;
+        req.use_j2 = parsed.use_j2;
+        req.use_drag = parsed.use_drag;
+        req.use_srp = parsed.use_srp;
+        req.use_sun = parsed.use_sun;
+        req.use_moon = parsed.use_moon;
+        req.f107 = parsed.f107;
+        req.atm_model = parsed.atmosphere_model;
+
+        auto result = run_propagation(req);
+        std::string fb = build_oem_flatbuffer(result, parsed.object_name);
 
         if (fb.size() > output_len) return -2;
         std::memcpy(output, fb.data(), fb.size());
@@ -461,8 +492,33 @@ int32_t convert(const uint8_t* input, size_t input_len,
 // Embind API
 // ============================================================================
 
+// Propagate from VCM-schema JSON (auto-detects simplified vs VCM format)
+static std::string propagate_vcm_json(const std::string& input) {
+    auto parsed = parse_vcm_json(input);
+    if (!parsed.valid) return propagate_json(input);
+
+    PropagationRequest req;
+    req.initial_state = parsed.initial_state;
+    req.epoch_jd0 = parsed.epoch_jd;
+    req.duration_days = parsed.duration_days;
+    req.step_seconds = parsed.step_seconds;
+    req.spacecraft = parsed.spacecraft;
+    req.use_twobody = parsed.use_twobody;
+    req.use_j2 = parsed.use_j2;
+    req.use_drag = parsed.use_drag;
+    req.use_srp = parsed.use_srp;
+    req.use_sun = parsed.use_sun;
+    req.use_moon = parsed.use_moon;
+    req.f107 = parsed.f107;
+    req.atm_model = parsed.atmosphere_model;
+
+    auto result = run_propagation(req);
+    return build_oem_flatbuffer(result, parsed.object_name);
+}
+
 EMSCRIPTEN_BINDINGS(hpop) {
     function("propagate", &propagate_json);
+    function("propagateVCM", &propagate_vcm_json);
     function("getVersion", &get_version);
     function("getForceModels", &get_force_models);
 }

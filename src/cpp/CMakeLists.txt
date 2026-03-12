@@ -53,10 +53,17 @@ set(HPOP_SOURCES
     src/atmosphere.cpp
     src/srp.cpp
     src/thirdbody.cpp
+    src/vcm_input.cpp
 )
+
+# VCM schema (combined header)
+set(VCM_GENERATED "${CMAKE_SOURCE_DIR}/include/sds")
 
 add_library(hpop_lib STATIC ${HPOP_SOURCES})
 target_include_directories(hpop_lib PUBLIC include)
+if(FLATBUFFERS_INCLUDE)
+    target_include_directories(hpop_lib PUBLIC ${FLATBUFFERS_INCLUDE})
+endif()
 
 # ============================================================================
 # Emscripten WASM build
@@ -73,6 +80,8 @@ if(EMSCRIPTEN)
     if(OEM_GENERATED)
         target_include_directories(hpop_wasm PRIVATE ${OEM_GENERATED})
     endif()
+    # VCM schema header is in include/sds/
+    target_include_directories(hpop_wasm PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
     set_target_properties(hpop_wasm PROPERTIES
         SUFFIX ".js"
@@ -118,5 +127,9 @@ else()
         add_executable(test_wasm_api tests/test_wasm_api.cpp)
         target_link_libraries(test_wasm_api hpop_lib)
         target_include_directories(test_wasm_api PRIVATE include ${FLATBUFFERS_INCLUDE} ${OEM_GENERATED})
+
+        add_executable(test_vcm_input tests/test_vcm_input.cpp)
+        target_link_libraries(test_vcm_input hpop_lib)
+        target_include_directories(test_vcm_input PRIVATE include ${FLATBUFFERS_INCLUDE})
     endif()
 endif()

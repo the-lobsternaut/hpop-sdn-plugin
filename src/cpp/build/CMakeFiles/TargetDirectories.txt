@@ -5,5 +5,6 @@
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_srp.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_thirdbody.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_wasm_api.dir
+/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/test_vcm_input.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/edit_cache.dir
 /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles/rebuild_cache.dir

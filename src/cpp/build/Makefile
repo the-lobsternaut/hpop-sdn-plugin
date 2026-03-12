@@ -207,6 +207,19 @@ test_wasm_api/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/build
 .PHONY : test_wasm_api/fast
 
+#=============================================================================
+# Target rules for targets named test_vcm_input
+
+# Build rule for target.
+test_vcm_input: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_vcm_input
+.PHONY : test_vcm_input
+
+# fast build rule for target.
+test_vcm_input/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/build
+.PHONY : test_vcm_input/fast
+
 src/atmosphere.o: src/atmosphere.cpp.o
 .PHONY : src/atmosphere.o
 
@@ -326,6 +339,30 @@ src/thirdbody.s: src/thirdbody.cpp.s
 src/thirdbody.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.s
 .PHONY : src/thirdbody.cpp.s
+
+src/vcm_input.o: src/vcm_input.cpp.o
+.PHONY : src/vcm_input.o
+
+# target to build an object file
+src/vcm_input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.o
+.PHONY : src/vcm_input.cpp.o
+
+src/vcm_input.i: src/vcm_input.cpp.i
+.PHONY : src/vcm_input.i
+
+# target to preprocess a source file
+src/vcm_input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.i
+.PHONY : src/vcm_input.cpp.i
+
+src/vcm_input.s: src/vcm_input.cpp.s
+.PHONY : src/vcm_input.s
+
+# target to generate assembly for a file
+src/vcm_input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.s
+.PHONY : src/vcm_input.cpp.s
 
 tests/test_drag.o: tests/test_drag.cpp.o
 .PHONY : tests/test_drag.o
@@ -447,6 +484,30 @@ tests/test_twobody.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/tests/test_twobody.cpp.s
 .PHONY : tests/test_twobody.cpp.s
 
+tests/test_vcm_input.o: tests/test_vcm_input.cpp.o
+.PHONY : tests/test_vcm_input.o
+
+# target to build an object file
+tests/test_vcm_input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/tests/test_vcm_input.cpp.o
+.PHONY : tests/test_vcm_input.cpp.o
+
+tests/test_vcm_input.i: tests/test_vcm_input.cpp.i
+.PHONY : tests/test_vcm_input.i
+
+# target to preprocess a source file
+tests/test_vcm_input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/tests/test_vcm_input.cpp.i
+.PHONY : tests/test_vcm_input.cpp.i
+
+tests/test_vcm_input.s: tests/test_vcm_input.cpp.s
+.PHONY : tests/test_vcm_input.s
+
+# target to generate assembly for a file
+tests/test_vcm_input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/tests/test_vcm_input.cpp.s
+.PHONY : tests/test_vcm_input.cpp.s
+
 tests/test_wasm_api.o: tests/test_wasm_api.cpp.o
 .PHONY : tests/test_wasm_api.o
 
@@ -485,6 +546,7 @@ help:
 	@echo "... test_srp"
 	@echo "... test_thirdbody"
 	@echo "... test_twobody"
+	@echo "... test_vcm_input"
 	@echo "... test_wasm_api"
 	@echo "... src/atmosphere.o"
 	@echo "... src/atmosphere.i"
@@ -501,6 +563,9 @@ help:
 	@echo "... src/thirdbody.o"
 	@echo "... src/thirdbody.i"
 	@echo "... src/thirdbody.s"
+	@echo "... src/vcm_input.o"
+	@echo "... src/vcm_input.i"
+	@echo "... src/vcm_input.s"
 	@echo "... tests/test_drag.o"
 	@echo "... tests/test_drag.i"
 	@echo "... tests/test_drag.s"
@@ -516,6 +581,9 @@ help:
 	@echo "... tests/test_twobody.o"
 	@echo "... tests/test_twobody.i"
 	@echo "... tests/test_twobody.s"
+	@echo "... tests/test_vcm_input.o"
+	@echo "... tests/test_vcm_input.i"
+	@echo "... tests/test_vcm_input.s"
 	@echo "... tests/test_wasm_api.o"
 	@echo "... tests/test_wasm_api.i"
 	@echo "... tests/test_wasm_api.s"
