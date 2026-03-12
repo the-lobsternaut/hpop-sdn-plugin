@@ -56,4 +56,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_thirdbody.dir/DependInfo.cmake"
   "CMakeFiles/test_wasm_api.dir/DependInfo.cmake"
   "CMakeFiles/test_vcm_input.dir/DependInfo.cmake"
+  "CMakeFiles/test_vcm_parser.dir/DependInfo.cmake"
   )

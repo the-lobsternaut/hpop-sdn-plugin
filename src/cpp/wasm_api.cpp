@@ -27,6 +27,7 @@
 #include "hpop/srp.h"
 #include "hpop/thirdbody.h"
 #include "hpop/vcm_input.h"
+#include "hpop/vcm_parser.h"
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten/emscripten.h>
@@ -380,15 +381,27 @@ static std::string get_force_models() {
 extern "C" {
 
 /**
- * Parse VCM (FlatBuffer or JSON) → propagate → OEM FlatBuffer binary
- * Accepts:
- *   - VCM FlatBuffer binary ($VCM file identifier)
- *   - JSON (VCM-schema or simplified propagation format)
+ * Parse input → output FlatBuffer binary.
+ * Auto-detects input format:
+ *   1. Raw text VCM (starts with "<>") → OCM FlatBuffer ($OCM)
+ *   2. VCM FlatBuffer binary ($VCM) → propagate → OEM FlatBuffer ($OEM)
+ *   3. JSON → propagate → OEM FlatBuffer ($OEM)
  */
 EMSCRIPTEN_KEEPALIVE
 int32_t parse(const char* input, size_t input_len,
               uint8_t* output, size_t output_len) {
     try {
+        // Check for raw text VCM (starts with "<>")
+        if (input_len >= 2 && input[0] == '<' && input[1] == '>') {
+            std::string text(input, input_len);
+            auto result = parse_text_vcm(text);
+            if (result.valid) {
+                if (result.ocm_buffer.size() > output_len) return -2;
+                std::memcpy(output, result.ocm_buffer.data(), result.ocm_buffer.size());
+                return static_cast<int32_t>(result.ocm_buffer.size());
+            }
+        }
+
         // Auto-detect: VCM FlatBuffer or JSON
         auto parsed = parse_vcm(reinterpret_cast<const uint8_t*>(input), input_len);
         if (!parsed.valid) {
@@ -516,9 +529,20 @@ static std::string propagate_vcm_json(const std::string& input) {
     return build_oem_flatbuffer(result, parsed.object_name);
 }
 
+// Parse raw text VCM → OCM FlatBuffer binary (no propagation)
+static std::string parse_text_vcm_to_ocm(const std::string& vcm_text) {
+    auto result = parse_text_vcm(vcm_text);
+    if (!result.valid) return "";
+    return std::string(
+        reinterpret_cast<const char*>(result.ocm_buffer.data()),
+        result.ocm_buffer.size()
+    );
+}
+
 EMSCRIPTEN_BINDINGS(hpop) {
     function("propagate", &propagate_json);
     function("propagateVCM", &propagate_vcm_json);
+    function("parseVCM", &parse_text_vcm_to_ocm);
     function("getVersion", &get_version);
     function("getForceModels", &get_force_models);
 }

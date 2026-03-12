@@ -220,6 +220,19 @@ test_vcm_input/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/build
 .PHONY : test_vcm_input/fast
 
+#=============================================================================
+# Target rules for targets named test_vcm_parser
+
+# Build rule for target.
+test_vcm_parser: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_vcm_parser
+.PHONY : test_vcm_parser
+
+# fast build rule for target.
+test_vcm_parser/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/build
+.PHONY : test_vcm_parser/fast
+
 src/atmosphere.o: src/atmosphere.cpp.o
 .PHONY : src/atmosphere.o
 
@@ -363,6 +376,30 @@ src/vcm_input.s: src/vcm_input.cpp.s
 src/vcm_input.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.s
 .PHONY : src/vcm_input.cpp.s
+
+src/vcm_parser.o: src/vcm_parser.cpp.o
+.PHONY : src/vcm_parser.o
+
+# target to build an object file
+src/vcm_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.o
+.PHONY : src/vcm_parser.cpp.o
+
+src/vcm_parser.i: src/vcm_parser.cpp.i
+.PHONY : src/vcm_parser.i
+
+# target to preprocess a source file
+src/vcm_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.i
+.PHONY : src/vcm_parser.cpp.i
+
+src/vcm_parser.s: src/vcm_parser.cpp.s
+.PHONY : src/vcm_parser.s
+
+# target to generate assembly for a file
+src/vcm_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.s
+.PHONY : src/vcm_parser.cpp.s
 
 tests/test_drag.o: tests/test_drag.cpp.o
 .PHONY : tests/test_drag.o
@@ -508,6 +545,30 @@ tests/test_vcm_input.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/tests/test_vcm_input.cpp.s
 .PHONY : tests/test_vcm_input.cpp.s
 
+tests/test_vcm_parser.o: tests/test_vcm_parser.cpp.o
+.PHONY : tests/test_vcm_parser.o
+
+# target to build an object file
+tests/test_vcm_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.o
+.PHONY : tests/test_vcm_parser.cpp.o
+
+tests/test_vcm_parser.i: tests/test_vcm_parser.cpp.i
+.PHONY : tests/test_vcm_parser.i
+
+# target to preprocess a source file
+tests/test_vcm_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.i
+.PHONY : tests/test_vcm_parser.cpp.i
+
+tests/test_vcm_parser.s: tests/test_vcm_parser.cpp.s
+.PHONY : tests/test_vcm_parser.s
+
+# target to generate assembly for a file
+tests/test_vcm_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.s
+.PHONY : tests/test_vcm_parser.cpp.s
+
 tests/test_wasm_api.o: tests/test_wasm_api.cpp.o
 .PHONY : tests/test_wasm_api.o
 
@@ -547,6 +608,7 @@ help:
 	@echo "... test_thirdbody"
 	@echo "... test_twobody"
 	@echo "... test_vcm_input"
+	@echo "... test_vcm_parser"
 	@echo "... test_wasm_api"
 	@echo "... src/atmosphere.o"
 	@echo "... src/atmosphere.i"
@@ -566,6 +628,9 @@ help:
 	@echo "... src/vcm_input.o"
 	@echo "... src/vcm_input.i"
 	@echo "... src/vcm_input.s"
+	@echo "... src/vcm_parser.o"
+	@echo "... src/vcm_parser.i"
+	@echo "... src/vcm_parser.s"
 	@echo "... tests/test_drag.o"
 	@echo "... tests/test_drag.i"
 	@echo "... tests/test_drag.s"
@@ -584,6 +649,9 @@ help:
 	@echo "... tests/test_vcm_input.o"
 	@echo "... tests/test_vcm_input.i"
 	@echo "... tests/test_vcm_input.s"
+	@echo "... tests/test_vcm_parser.o"
+	@echo "... tests/test_vcm_parser.i"
+	@echo "... tests/test_vcm_parser.s"
 	@echo "... tests/test_wasm_api.o"
 	@echo "... tests/test_wasm_api.i"
 	@echo "... tests/test_wasm_api.s"

@@ -71,6 +71,7 @@ all: CMakeFiles/test_srp.dir/all
 all: CMakeFiles/test_thirdbody.dir/all
 all: CMakeFiles/test_wasm_api.dir/all
 all: CMakeFiles/test_vcm_input.dir/all
+all: CMakeFiles/test_vcm_parser.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
@@ -82,6 +83,7 @@ codegen: CMakeFiles/test_srp.dir/codegen
 codegen: CMakeFiles/test_thirdbody.dir/codegen
 codegen: CMakeFiles/test_wasm_api.dir/codegen
 codegen: CMakeFiles/test_vcm_input.dir/codegen
+codegen: CMakeFiles/test_vcm_parser.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -97,6 +99,7 @@ clean: CMakeFiles/test_srp.dir/clean
 clean: CMakeFiles/test_thirdbody.dir/clean
 clean: CMakeFiles/test_wasm_api.dir/clean
 clean: CMakeFiles/test_vcm_input.dir/clean
+clean: CMakeFiles/test_vcm_parser.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -106,12 +109,12 @@ clean: CMakeFiles/test_vcm_input.dir/clean
 CMakeFiles/hpop_lib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target hpop_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target hpop_lib"
 .PHONY : CMakeFiles/hpop_lib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hpop_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hpop_lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/hpop_lib.dir/rule
@@ -123,7 +126,7 @@ hpop_lib: CMakeFiles/hpop_lib.dir/rule
 # codegen rule for target.
 CMakeFiles/hpop_lib.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target hpop_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target hpop_lib"
 .PHONY : CMakeFiles/hpop_lib.dir/codegen
 
 # clean rule for target.
@@ -138,12 +141,12 @@ CMakeFiles/hpop_lib.dir/clean:
 CMakeFiles/test_twobody.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=16,17 "Built target test_twobody"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=17,18 "Built target test_twobody"
 .PHONY : CMakeFiles/test_twobody.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_twobody.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_twobody.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_twobody.dir/rule
@@ -155,7 +158,7 @@ test_twobody: CMakeFiles/test_twobody.dir/rule
 # codegen rule for target.
 CMakeFiles/test_twobody.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_twobody.dir/build.make CMakeFiles/test_twobody.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=16,17 "Finished codegen for target test_twobody"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=17,18 "Finished codegen for target test_twobody"
 .PHONY : CMakeFiles/test_twobody.dir/codegen
 
 # clean rule for target.
@@ -170,12 +173,12 @@ CMakeFiles/test_twobody.dir/clean:
 CMakeFiles/test_geopotential.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=10,11 "Built target test_geopotential"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=11,12 "Built target test_geopotential"
 .PHONY : CMakeFiles/test_geopotential.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_geopotential.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_geopotential.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_geopotential.dir/rule
@@ -187,7 +190,7 @@ test_geopotential: CMakeFiles/test_geopotential.dir/rule
 # codegen rule for target.
 CMakeFiles/test_geopotential.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_geopotential.dir/build.make CMakeFiles/test_geopotential.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=10,11 "Finished codegen for target test_geopotential"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=11,12 "Finished codegen for target test_geopotential"
 .PHONY : CMakeFiles/test_geopotential.dir/codegen
 
 # clean rule for target.
@@ -202,12 +205,12 @@ CMakeFiles/test_geopotential.dir/clean:
 CMakeFiles/test_drag.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=8,9 "Built target test_drag"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=9,10 "Built target test_drag"
 .PHONY : CMakeFiles/test_drag.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_drag.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_drag.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_drag.dir/rule
@@ -219,7 +222,7 @@ test_drag: CMakeFiles/test_drag.dir/rule
 # codegen rule for target.
 CMakeFiles/test_drag.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_drag.dir/build.make CMakeFiles/test_drag.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=8,9 "Finished codegen for target test_drag"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=9,10 "Finished codegen for target test_drag"
 .PHONY : CMakeFiles/test_drag.dir/codegen
 
 # clean rule for target.
@@ -234,12 +237,12 @@ CMakeFiles/test_drag.dir/clean:
 CMakeFiles/test_srp.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=12,13 "Built target test_srp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=13,14 "Built target test_srp"
 .PHONY : CMakeFiles/test_srp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_srp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_srp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_srp.dir/rule
@@ -251,7 +254,7 @@ test_srp: CMakeFiles/test_srp.dir/rule
 # codegen rule for target.
 CMakeFiles/test_srp.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_srp.dir/build.make CMakeFiles/test_srp.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=12,13 "Finished codegen for target test_srp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=13,14 "Finished codegen for target test_srp"
 .PHONY : CMakeFiles/test_srp.dir/codegen
 
 # clean rule for target.
@@ -266,12 +269,12 @@ CMakeFiles/test_srp.dir/clean:
 CMakeFiles/test_thirdbody.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=14,15 "Built target test_thirdbody"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=15,16 "Built target test_thirdbody"
 .PHONY : CMakeFiles/test_thirdbody.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_thirdbody.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_thirdbody.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_thirdbody.dir/rule
@@ -283,7 +286,7 @@ test_thirdbody: CMakeFiles/test_thirdbody.dir/rule
 # codegen rule for target.
 CMakeFiles/test_thirdbody.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thirdbody.dir/build.make CMakeFiles/test_thirdbody.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=14,15 "Finished codegen for target test_thirdbody"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=15,16 "Finished codegen for target test_thirdbody"
 .PHONY : CMakeFiles/test_thirdbody.dir/codegen
 
 # clean rule for target.
@@ -298,12 +301,12 @@ CMakeFiles/test_thirdbody.dir/clean:
 CMakeFiles/test_wasm_api.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=20,21 "Built target test_wasm_api"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=23,24 "Built target test_wasm_api"
 .PHONY : CMakeFiles/test_wasm_api.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_wasm_api.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_wasm_api.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_wasm_api.dir/rule
@@ -315,7 +318,7 @@ test_wasm_api: CMakeFiles/test_wasm_api.dir/rule
 # codegen rule for target.
 CMakeFiles/test_wasm_api.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_wasm_api.dir/build.make CMakeFiles/test_wasm_api.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=20,21 "Finished codegen for target test_wasm_api"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=23,24 "Finished codegen for target test_wasm_api"
 .PHONY : CMakeFiles/test_wasm_api.dir/codegen
 
 # clean rule for target.
@@ -330,12 +333,12 @@ CMakeFiles/test_wasm_api.dir/clean:
 CMakeFiles/test_vcm_input.dir/all: CMakeFiles/hpop_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=18,19 "Built target test_vcm_input"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=19,20 "Built target test_vcm_input"
 .PHONY : CMakeFiles/test_vcm_input.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_vcm_input.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_vcm_input.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_vcm_input.dir/rule
@@ -347,13 +350,45 @@ test_vcm_input: CMakeFiles/test_vcm_input.dir/rule
 # codegen rule for target.
 CMakeFiles/test_vcm_input.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=18,19 "Finished codegen for target test_vcm_input"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=19,20 "Finished codegen for target test_vcm_input"
 .PHONY : CMakeFiles/test_vcm_input.dir/codegen
 
 # clean rule for target.
 CMakeFiles/test_vcm_input.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_input.dir/build.make CMakeFiles/test_vcm_input.dir/clean
 .PHONY : CMakeFiles/test_vcm_input.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_vcm_parser.dir
+
+# All Build rule for target.
+CMakeFiles/test_vcm_parser.dir/all: CMakeFiles/hpop_lib.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=21,22 "Built target test_vcm_parser"
+.PHONY : CMakeFiles/test_vcm_parser.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_vcm_parser.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_vcm_parser.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_vcm_parser.dir/rule
+
+# Convenience name for target.
+test_vcm_parser: CMakeFiles/test_vcm_parser.dir/rule
+.PHONY : test_vcm_parser
+
+# codegen rule for target.
+CMakeFiles/test_vcm_parser.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/build/CMakeFiles --progress-num=21,22 "Finished codegen for target test_vcm_parser"
+.PHONY : CMakeFiles/test_vcm_parser.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_vcm_parser.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vcm_parser.dir/build.make CMakeFiles/test_vcm_parser.dir/clean
+.PHONY : CMakeFiles/test_vcm_parser.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

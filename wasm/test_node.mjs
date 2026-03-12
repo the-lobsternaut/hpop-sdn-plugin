@@ -1,6 +1,6 @@
 /**
  * HPOP WASM smoke tests
- * Tests both simple JSON and VCM-schema JSON input paths
+ * Tests: simple JSON propagation, VCM-schema JSON, Keplerian, raw text VCM → OCM
  */
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -31,40 +31,68 @@ console.log('\n📡 Test 2: VCM-schema JSON propagation...');
 const t1 = performance.now();
 const result2 = Module.propagateVCM(JSON.stringify({
     OBJECT_NAME: "ISS (ZARYA)",
-    OBJECT_ID: "1998-067A",
     epoch: "2024-01-01T00:00:00.000Z",
     X: -2517.232, Y: -663.786, Z: 6691.339,
     X_DOT: -1.768, Y_DOT: 7.315, Z_DOT: 1.439,
-    MASS: 420000.0,
-    DRAG_AREA: 1600.0,
-    DRAG_COEFF: 2.2,
-    SOLAR_RAD_AREA: 2500.0,
-    SOLAR_RAD_COEFF: 1.3,
-    NORAD_CAT_ID: 25544,
-    duration_days: 0.1,
-    step_seconds: 60.0,
-    f107: 150.0
+    MASS: 420000.0, DRAG_AREA: 1600.0, DRAG_COEFF: 2.2,
+    duration_days: 0.1, step_seconds: 60.0
 }));
 console.log(`   Done in ${(performance.now() - t1).toFixed(1)} ms, ${result2.length} bytes`);
 
-// Test 3: VCM with Keplerian elements
-console.log('\n📡 Test 3: Keplerian elements...');
+// Test 3: Raw text VCM → OCM FlatBuffer
+console.log('\n📡 Test 3: Raw text VCM → OCM...');
+const rawVCM = `<> SP VECTOR/COVARIANCE MESSAGE - V2.0
+<>
+<> MESSAGE TIME (UTC): 2023 007 (07 JAN) 22:45:06.000  CENTER: FAKE_CENTER
+<> SATELLITE NUMBER: 00000                    INT. DES.: 0000-000A
+<> COMMON NAME:
+<> EPOCH TIME (UTC): 2023 007 (07 JAN) 21:39: 8.414  EPOCH REV: 37693
+<> J2K POS (KM):       369.89521989    5103.23778139    4467.41312115
+<> J2K VEL (KM/S):  -6.491206849227  -2.407500055425   3.279477293781
+<> ECI POS (KM):       333.71334681    5104.90725904    4468.35490991
+<> ECI VEL (KM/S):  -6.485984386597  -2.441004400229   3.265011217687
+<> EFG POS (KM):      4957.72595592    1261.90176605    4468.35490991
+<> EFG VEL (KM/S):  -4.235735566625   5.051150329994   3.265011217687
+<> GEOPOTENTIAL: EGM-96 70Z,70T  DRAG: JAC70/MSIS90  LUNAR/SOLAR:  ON
+<> SOLAR RAD PRESS: OFF  SOLID EARTH TIDES:  ON  IN-TRACK THRUST: OFF
+<> BALLISTIC COEF (M2/KG):  0.826455E-02 BDOT (M2/KG-S): 0.000000E+00
+<> SOLAR RAD PRESS COEFF (M2/KG):  0.000000E+00  EDR(W/KG):  0.39E-02
+<> THRUST ACCEL (M/S2):  0.000000E+00  C.M. OFFSET (M):  0.000000E+00
+<> SOLAR FLUX: F10: 153  AVERAGE F10: 137  AVERAGE AP:  10.0
+<> TAI-UTC (S): 37  UT1-UTC (S): -0.01719  UT1 RATE (MS/DAY):  0.384
+<> POLAR MOT X,Y (ARCSEC):  0.0505  0.2109 IAU 1980 NUTAT:   4 TERMS
+<> TIME CONST LEAP SECOND TIME (UTC): 2049 365 (31 DEC) 23:59:59.999
+<> INTEGRATOR MODE: ASW          COORD SYS: J2000  PARTIALS: FAST NUM
+<> STEP MODE: AUTO  FIXED STEP: OFF  STEP SIZE SELECTION: MANUAL
+<> INITIAL STEP SIZE (S):   20.000  ERROR CONTROL: 0.100E-13
+<> VECTOR U,V,W SIGMAS (KM):           0.0084     0.0402     0.0074
+<> VECTOR UD,VD,WD SIGMAS (KM/S):      0.0000     0.0000     0.0000
+<> COVARIANCE MATRIX (EQUINOCTIAL ELS): ( 7x 7) WTD RMS:  0.11498E+01
+<>  0.20458E-11  0.10230E-11  0.13484E-11  0.13797E-11 -0.47633E-12
+<>  0.13642E-10  0.13871E-12  0.91700E-13  0.70998E-12  0.93201E-13
+<>  0.50454E-12  0.26963E-12 -0.10331E-12  0.40296E-14  0.39682E-12
+<> -0.38952E-12 -0.24005E-12  0.73298E-14 -0.10121E-13 -0.17845E-12
+<>  0.40019E-12  0.91367E-08  0.53586E-08  0.36570E-07  0.50105E-08
+<>  0.93145E-09 -0.57204E-09  0.13665E-02`;
+
 const t2 = performance.now();
-const result3 = Module.propagateVCM(JSON.stringify({
-    OBJECT_NAME: "STARLINK-1234",
-    epoch: "2024-06-21T12:00:00.000Z",
-    SEMI_MAJOR_AXIS: 6921.0,
-    ECCENTRICITY: 0.0001,
-    INCLINATION: 53.0,
-    RA_OF_ASC_NODE: 0.0,
-    ARG_OF_PERICENTER: 0.0,
-    ANOMALY: 0.0,
-    MASS: 260.0,
-    DRAG_AREA: 22.0,
-    DRAG_COEFF: 2.2,
-    duration_days: 0.1,
-    step_seconds: 60.0
-}));
-console.log(`   Done in ${(performance.now() - t2).toFixed(1)} ms, ${result3.length} bytes`);
+const result3 = Module.parseVCM(rawVCM);
+const elapsed = (performance.now() - t2).toFixed(1);
+
+console.log(`   Done in ${elapsed} ms`);
+console.log(`   OCM binary size: ${result3.length} bytes`);
+
+// Verify file identifier ($OCM)
+const bytes = new Uint8Array(result3.length);
+for (let i = 0; i < result3.length; i++) bytes[i] = result3.charCodeAt(i);
+const fid = String.fromCharCode(bytes[4], bytes[5], bytes[6], bytes[7]);
+console.log(`   File identifier: ${fid}`);
+
+if (fid === '$OCM') {
+    console.log('   ✅ Valid OCM FlatBuffer');
+} else {
+    console.log('   ❌ Invalid file identifier');
+    process.exit(1);
+}
 
 console.log('\n✅ All smoke tests passed');

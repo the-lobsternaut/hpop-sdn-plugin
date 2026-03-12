@@ -54,6 +54,7 @@ set(HPOP_SOURCES
     src/srp.cpp
     src/thirdbody.cpp
     src/vcm_input.cpp
+    src/vcm_parser.cpp
 )
 
 # VCM schema (combined header)
@@ -131,5 +132,9 @@ else()
         add_executable(test_vcm_input tests/test_vcm_input.cpp)
         target_link_libraries(test_vcm_input hpop_lib)
         target_include_directories(test_vcm_input PRIVATE include ${FLATBUFFERS_INCLUDE})
+
+        add_executable(test_vcm_parser tests/test_vcm_parser.cpp)
+        target_link_libraries(test_vcm_parser hpop_lib)
+        target_include_directories(test_vcm_parser PRIVATE include ${FLATBUFFERS_INCLUDE})
     endif()
 endif()
