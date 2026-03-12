@@ -76,16 +76,15 @@ const rawVCM = `<> SP VECTOR/COVARIANCE MESSAGE - V2.0
 <>  0.93145E-09 -0.57204E-09  0.13665E-02`;
 
 const t2 = performance.now();
-const result3 = Module.parseVCM(rawVCM);
+const ocmBytes = Module.parseVCM(rawVCM);
 const elapsed = (performance.now() - t2).toFixed(1);
 
 console.log(`   Done in ${elapsed} ms`);
-console.log(`   OCM binary size: ${result3.length} bytes`);
+console.log(`   OCM binary size: ${ocmBytes.length} bytes`);
+console.log(`   Type: ${ocmBytes.constructor.name}`);
 
 // Verify file identifier ($OCM)
-const bytes = new Uint8Array(result3.length);
-for (let i = 0; i < result3.length; i++) bytes[i] = result3.charCodeAt(i);
-const fid = String.fromCharCode(bytes[4], bytes[5], bytes[6], bytes[7]);
+const fid = String.fromCharCode(ocmBytes[4], ocmBytes[5], ocmBytes[6], ocmBytes[7]);
 console.log(`   File identifier: ${fid}`);
 
 if (fid === '$OCM') {
@@ -94,5 +93,30 @@ if (fid === '$OCM') {
     console.log('   ❌ Invalid file identifier');
     process.exit(1);
 }
+
+// Test 4: OCM → text VCM (round-trip)
+console.log('\n📡 Test 4: OCM → text VCM (round-trip)...');
+const t3 = performance.now();
+const textBack = Module.convertOCM(ocmBytes);
+console.log(`   Done in ${(performance.now() - t3).toFixed(1)} ms`);
+console.log(`   Text VCM size: ${textBack.length} chars`);
+
+// Verify round-trip preserves key fields
+const checks = [
+    ['SP VECTOR/COVARIANCE', 'Header'],
+    ['FAKE_CENTER', 'Center'],
+    ['0000-000A', 'Int designator'],
+    ['369.89521989', 'J2K X position'],
+    ['EGM-96', 'Geopotential model'],
+    ['70Z,70T', 'Degree/order'],
+];
+let allOk = true;
+for (const [needle, label] of checks) {
+    if (!textBack.includes(needle)) {
+        console.log(`   ❌ ${label} not found`);
+        allOk = false;
+    }
+}
+if (allOk) console.log('   ✅ All key fields preserved in round-trip');
 
 console.log('\n✅ All smoke tests passed');

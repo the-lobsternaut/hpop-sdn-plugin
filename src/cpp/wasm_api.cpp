@@ -28,6 +28,7 @@
 #include "hpop/thirdbody.h"
 #include "hpop/vcm_input.h"
 #include "hpop/vcm_parser.h"
+#include "hpop/vcm_writer.h"
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten/emscripten.h>
@@ -441,13 +442,30 @@ int32_t parse(const char* input, size_t input_len,
 }
 
 /**
- * Convert OEM FlatBuffer → CCSDS OEM text
+ * Convert FlatBuffer binary → text format.
+ * Auto-detects input:
+ *   $OCM → raw text VCM (18 SPCS format)
+ *   $OEM → CCSDS OEM text
  */
 EMSCRIPTEN_KEEPALIVE
 int32_t convert(const uint8_t* input, size_t input_len,
                 uint8_t* output, size_t output_len) {
     try {
-        flatbuffers::Verifier verifier(input, input_len);
+        if (input_len < 8) return -3;
+
+        // Check file identifier at offset 4
+        const char* fid = reinterpret_cast<const char*>(input + 4);
+
+        // OCM → text VCM
+        if (std::strncmp(fid, "$OCM", 4) == 0) {
+            std::string text = ocm_to_text_vcm(input, input_len);
+            if (text.empty()) return -3;
+            if (text.size() > output_len) return -2;
+            std::memcpy(output, text.data(), text.size());
+            return static_cast<int32_t>(text.size());
+        }
+
+        // OEM → CCSDS OEM text
         auto* oem = flatbuffers::GetRoot<OEM>(input);
         if (!oem) return -3;
 
@@ -529,13 +547,34 @@ static std::string propagate_vcm_json(const std::string& input) {
     return build_oem_flatbuffer(result, parsed.object_name);
 }
 
-// Parse raw text VCM → OCM FlatBuffer binary (no propagation)
-static std::string parse_text_vcm_to_ocm(const std::string& vcm_text) {
+// Parse raw text VCM → OCM FlatBuffer binary (returns Uint8Array via typed_memory_view)
+static val parse_text_vcm_to_ocm(const std::string& vcm_text) {
     auto result = parse_text_vcm(vcm_text);
-    if (!result.valid) return "";
-    return std::string(
-        reinterpret_cast<const char*>(result.ocm_buffer.data()),
-        result.ocm_buffer.size()
+    if (!result.valid) return val::null();
+    // Allocate on WASM heap and copy
+    size_t size = result.ocm_buffer.size();
+    uint8_t* ptr = static_cast<uint8_t*>(malloc(size));
+    std::memcpy(ptr, result.ocm_buffer.data(), size);
+    // Create a Uint8Array copy in JS land (so we can free the C++ memory)
+    val heap_view = val(typed_memory_view(size, ptr));
+    val js_array = val::global("Uint8Array").new_(heap_view);
+    free(ptr);
+    return js_array;
+}
+
+// Convert OCM FlatBuffer → text VCM (accepts binary as val)
+static val convert_ocm_to_text_val(val ocm_val) {
+    // Get the binary data from JS typed array or string
+    auto vec = vecFromJSArray<uint8_t>(ocm_val);
+    std::string text = ocm_to_text_vcm(vec.data(), vec.size());
+    return val(text);
+}
+
+// Convert OCM FlatBuffer → text VCM (from binary string, for C++ side)
+static std::string convert_ocm_to_text(const std::string& ocm_binary) {
+    return ocm_to_text_vcm(
+        reinterpret_cast<const uint8_t*>(ocm_binary.data()),
+        ocm_binary.size()
     );
 }
 
@@ -543,6 +582,7 @@ EMSCRIPTEN_BINDINGS(hpop) {
     function("propagate", &propagate_json);
     function("propagateVCM", &propagate_vcm_json);
     function("parseVCM", &parse_text_vcm_to_ocm);
+    function("convertOCM", &convert_ocm_to_text_val);
     function("getVersion", &get_version);
     function("getForceModels", &get_force_models);
 }

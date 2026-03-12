@@ -1,6 +1,6 @@
-CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.o: \
-  /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/tests/test_vcm_parser.cpp \
-  /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/hpop/vcm_parser.h \
+CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.o: \
+  /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/vcm_writer.cpp \
+  /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/hpop/vcm_writer.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -754,7 +754,6 @@ CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
-  /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/hpop/vcm_writer.h \
   /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/sds/ocm_generated.h \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/flatbuffers.h \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/array.h \
@@ -800,4 +799,19 @@ CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.o: \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/string.h \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/struct.h \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/table.h \
-  /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/vector_downward.h
+  /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/vector_downward.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_char_like_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/format \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/queue \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/deque.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/queue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h

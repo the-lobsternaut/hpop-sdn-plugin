@@ -401,6 +401,30 @@ src/vcm_parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.s
 .PHONY : src/vcm_parser.cpp.s
 
+src/vcm_writer.o: src/vcm_writer.cpp.o
+.PHONY : src/vcm_writer.o
+
+# target to build an object file
+src/vcm_writer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.o
+.PHONY : src/vcm_writer.cpp.o
+
+src/vcm_writer.i: src/vcm_writer.cpp.i
+.PHONY : src/vcm_writer.i
+
+# target to preprocess a source file
+src/vcm_writer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.i
+.PHONY : src/vcm_writer.cpp.i
+
+src/vcm_writer.s: src/vcm_writer.cpp.s
+.PHONY : src/vcm_writer.s
+
+# target to generate assembly for a file
+src/vcm_writer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hpop_lib.dir/build.make CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.s
+.PHONY : src/vcm_writer.cpp.s
+
 tests/test_drag.o: tests/test_drag.cpp.o
 .PHONY : tests/test_drag.o
 
@@ -631,6 +655,9 @@ help:
 	@echo "... src/vcm_parser.o"
 	@echo "... src/vcm_parser.i"
 	@echo "... src/vcm_parser.s"
+	@echo "... src/vcm_writer.o"
+	@echo "... src/vcm_writer.i"
+	@echo "... src/vcm_writer.s"
 	@echo "... tests/test_drag.o"
 	@echo "... tests/test_drag.i"
 	@echo "... tests/test_drag.s"

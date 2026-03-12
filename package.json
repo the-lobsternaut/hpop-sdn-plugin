@@ -1,0 +1,48 @@
+{
+  "name": "hpop-sdn-plugin",
+  "version": "1.0.0",
+  "description": "High-Precision Orbit Propagator SDN plugin — SP/VCM satellite catalog compatibility, compiled to WebAssembly",
+  "main": "wasm/node/hpop_wasm.js",
+  "types": "wasm/index.d.ts",
+  "scripts": {
+    "build": "./build.sh",
+    "build:clean": "./build.sh --clean",
+    "test": "node wasm/test_node.mjs",
+    "test:native": "cd src/cpp/build && for t in test_twobody test_geopotential test_drag test_srp test_thirdbody test_wasm_api test_vcm_input test_vcm_parser; do ./$t; done"
+  },
+  "keywords": [
+    "space-data-network",
+    "sdn",
+    "orbit-propagation",
+    "hpop",
+    "astrodynamics",
+    "sgp4",
+    "vcm",
+    "ocm",
+    "oem",
+    "flatbuffers",
+    "wasm",
+    "webassembly",
+    "satellite",
+    "space"
+  ],
+  "author": "DigitalArsenal",
+  "license": "Apache-2.0",
+  "files": [
+    "wasm/node/hpop_wasm.js",
+    "wasm/node/hpop_wasm.wasm",
+    "wasm/index.d.ts",
+    "plugin-manifest.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-lobsternaut/hpop-sdn-plugin.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

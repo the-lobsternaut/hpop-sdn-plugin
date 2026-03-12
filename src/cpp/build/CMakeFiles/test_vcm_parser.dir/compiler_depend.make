@@ -785,6 +785,7 @@ CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.o: /Users/lobsternaut/s
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/hpop/vcm_parser.h \
+  /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/hpop/vcm_writer.h \
   /Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/sds/ocm_generated.h \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/allocator.h \
   /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/array.h \
@@ -817,6 +818,8 @@ CMakeFiles/test_vcm_parser.dir/tests/test_vcm_parser.cpp.o: /Users/lobsternaut/s
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/math.h:
 
 /Users/lobsternaut/software/space-data-network-project/packages/flatbuffers/include/flatbuffers/buffer.h:
+
+/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/include/hpop/vcm_writer.h:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h:
 

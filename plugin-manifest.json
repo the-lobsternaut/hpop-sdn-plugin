@@ -1,55 +1,70 @@
 {
   "schemaVersion": 1,
-  "pluginType": "compute",
-  "pluginId": "hpop-propagator",
-  "pluginName": "High-Precision Orbit Propagator (HPOP)",
+  "pluginType": "data-transform",
+  "pluginId": "hpop-sdn-plugin",
+  "pluginName": "High-Precision Orbit Propagator",
   "pluginVersion": "1.0.0",
   "vendorId": "the-lobsternaut",
   "contact": "https://github.com/the-lobsternaut",
-  "description": "Numerical orbit propagator with full force model: geopotential (EGM-96), atmospheric drag (Harris-Priester/HASDM), SRP (conical shadow), and Sun/Moon third-body perturbations. Outputs CCSDS OEM via spacedatastandards.org FlatBuffers.",
+  "description": "Parses 18 SPCS text VCM to OCM FlatBuffers, propagates SP orbits with full force model stack (two-body, geopotential, drag, SRP, Sun/Moon), outputs OEM FlatBuffers",
   "capabilities": [
-    "compute.propagate",
-    "data.convert"
+    "data.convert",
+    "data.transform",
+    "orbit.propagate"
   ],
-  "schema": {
-    "code": "OEM",
-    "fileIdentifier": "$OEM",
-    "outputType": "OEM"
-  },
-  "wasm": {
-    "module": "hpop_wasm",
-    "exports": {
-      "c_abi": ["parse", "convert", "malloc", "free"],
-      "embind": ["propagate", "getVersion", "getForceModels"]
-    }
-  },
-  "forceModels": {
-    "gravity": {
-      "twobody": "Point-mass Earth gravity (μ = 398600.4418 km³/s²)",
-      "j2": "J2 zonal harmonic perturbation (WGS-84)",
-      "geopotential": "EGM-96 spherical harmonic expansion (configurable degree/order)"
+  "inputFormats": [
+    {
+      "format": "text/vcm",
+      "description": "18 SPCS fixed-format ASCII VCM (V2.0)",
+      "fileIdentifier": null,
+      "contentType": "text/plain"
     },
-    "nonGravitational": {
-      "drag": "Atmospheric drag with Harris-Priester density model, F10.7 parameterization, DCA hook for HASDM",
-      "srp": "Solar radiation pressure (cannonball model) with conical Earth shadow (penumbra/umbra)"
+    {
+      "format": "flatbuffers/vcm",
+      "description": "spacedatastandards.org VCM FlatBuffer",
+      "fileIdentifier": "$VCM"
     },
-    "thirdBody": {
-      "sun": "Solar gravitational perturbation (Battin formulation, low-precision ephemeris)",
-      "moon": "Lunar gravitational perturbation (Battin formulation, low-precision ephemeris)"
+    {
+      "format": "application/json",
+      "description": "Propagation request JSON (simplified or VCM-schema)"
     }
-  },
-  "integrator": {
-    "method": "RKF-78",
-    "type": "adaptive",
-    "tolerance": {
-      "absolute": 1e-10,
-      "relative": 1e-12
+  ],
+  "outputFormats": [
+    {
+      "format": "flatbuffers/ocm",
+      "description": "spacedatastandards.org OCM FlatBuffer",
+      "fileIdentifier": "$OCM"
+    },
+    {
+      "format": "flatbuffers/oem",
+      "description": "spacedatastandards.org OEM FlatBuffer",
+      "fileIdentifier": "$OEM"
+    },
+    {
+      "format": "text/vcm",
+      "description": "18 SPCS fixed-format ASCII VCM (V2.0)"
+    },
+    {
+      "format": "text/oem",
+      "description": "CCSDS OEM text format"
     }
+  ],
+  "forceModels": [
+    "twobody",
+    "geopotential-egm96",
+    "drag-harris-priester",
+    "srp-conical",
+    "thirdbody-sun",
+    "thirdbody-moon"
+  ],
+  "integrator": "rkf78",
+  "wasmSize": "270KB",
+  "exports": {
+    "cabi": ["parse", "convert", "malloc", "free"],
+    "embind": ["propagate", "propagateVCM", "parseVCM", "convertOCM", "getVersion", "getForceModels"]
   },
-  "metadata": {
-    "category": "astrodynamics",
-    "dataTypes": ["orbit-ephemeris", "state-vector", "propagation"],
-    "standards": ["spacedatastandards.org/OEM", "CCSDS-502.0-B-3"],
-    "tags": ["hpop", "orbit-propagation", "numerical-integrator", "drag", "srp", "third-body", "geopotential"]
+  "tests": {
+    "native": "220 tests across 8 suites",
+    "wasm": "4 smoke tests (Node.js)"
   }
 }

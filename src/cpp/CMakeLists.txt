@@ -55,6 +55,7 @@ set(HPOP_SOURCES
     src/thirdbody.cpp
     src/vcm_input.cpp
     src/vcm_parser.cpp
+    src/vcm_writer.cpp
 )
 
 # VCM schema (combined header)

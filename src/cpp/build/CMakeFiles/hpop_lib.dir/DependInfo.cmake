@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/thirdbody.cpp" "CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.o" "gcc" "CMakeFiles/hpop_lib.dir/src/thirdbody.cpp.o.d"
   "/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/vcm_input.cpp" "CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.o" "gcc" "CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.o.d"
   "/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/vcm_parser.cpp" "CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.o" "gcc" "CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.o.d"
+  "/Users/lobsternaut/software/space-data-network-plugins/hpop-sdn-plugin/src/cpp/src/vcm_writer.cpp" "CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.o" "gcc" "CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

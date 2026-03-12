@@ -8,6 +8,7 @@
  */
 
 #include "hpop/vcm_parser.h"
+#include "hpop/vcm_writer.h"
 #include "sds/ocm_generated.h"
 
 #include <cstdio>
@@ -347,10 +348,55 @@ void test_user_params() {
     }
 }
 
-// ── Test 9: Edge case — empty/malformed VCM ──
+// ── Test 9: Round-trip (text VCM → OCM → text VCM) ──
+
+void test_roundtrip() {
+    printf("\n=== Test 9: Round-Trip (text → OCM → text) ===\n");
+
+    // Parse original
+    auto result = hpop::parse_text_vcm(SAMPLE_VCM);
+    CHECK(result.valid, "Initial parse OK");
+
+    // Convert back to text
+    std::string text_back = hpop::ocm_to_text_vcm(
+        result.ocm_buffer.data(), result.ocm_buffer.size());
+    CHECK(!text_back.empty(), "Reverse conversion produced output");
+    printf("  Output text: %zu bytes\n", text_back.size());
+
+    // Verify key fields survive the round-trip
+    CHECK(text_back.find("SP VECTOR/COVARIANCE MESSAGE") != std::string::npos,
+          "Header preserved");
+    CHECK(text_back.find("FAKE_CENTER") != std::string::npos,
+          "Center preserved");
+    CHECK(text_back.find("0000-000A") != std::string::npos,
+          "Int designator preserved");
+    CHECK(text_back.find("369.89521989") != std::string::npos,
+          "J2K X position preserved");
+    CHECK(text_back.find("EGM-96") != std::string::npos,
+          "Geopotential model preserved");
+    CHECK(text_back.find("70Z,70T") != std::string::npos,
+          "Geopotential degree/order preserved");
+
+    // Re-parse the round-tripped text
+    auto result2 = hpop::parse_text_vcm(text_back);
+    CHECK(result2.valid, "Re-parsed round-tripped text");
+
+    // Compare state vectors
+    auto* ocm1 = flatbuffers::GetRoot<OCM>(result.ocm_buffer.data());
+    auto* ocm2 = flatbuffers::GetRoot<OCM>(result2.ocm_buffer.data());
+    auto* s1 = ocm1->STATE_DATA();
+    auto* s2 = ocm2->STATE_DATA();
+
+    if (s1 && s2 && s1->size() >= 6 && s2->size() >= 6) {
+        CHECK_TOL(s2->Get(0), s1->Get(0), 1e-4, "X survives round-trip");
+        CHECK_TOL(s2->Get(3), s1->Get(3), 1e-8, "Vx survives round-trip");
+    }
+}
+
+// ── Test 10: Edge case — empty/malformed VCM ──
 
 void test_edge_cases() {
-    printf("\n=== Test 9: Edge Cases ===\n");
+    printf("\n=== Test 10: Edge Cases ===\n");
 
     // Empty
     auto r1 = hpop::parse_text_vcm("");
@@ -385,6 +431,7 @@ int main() {
     test_covariance();
     test_iss_vcm();
     test_user_params();
+    test_roundtrip();
     test_edge_cases();
 
     printf("\n============================================================\n");

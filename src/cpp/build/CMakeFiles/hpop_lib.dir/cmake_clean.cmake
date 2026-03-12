@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hpop_lib.dir/src/vcm_input.cpp.o.d"
   "CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.o"
   "CMakeFiles/hpop_lib.dir/src/vcm_parser.cpp.o.d"
+  "CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.o"
+  "CMakeFiles/hpop_lib.dir/src/vcm_writer.cpp.o.d"
   "libhpop_lib.a"
   "libhpop_lib.pdb"
 )
