@@ -338,9 +338,25 @@ State Propagator::propagate(
             while (direction * (t - next_output) >= -1e-15 && direction * (tf - next_output) >= -1e-15) {
                 EphemerisPoint ep;
                 ep.epoch_jd = next_output;
-                // For simplicity, use current state (interpolation TODO)
-                std::memcpy(ep.state.r, y, 3 * sizeof(double));
-                std::memcpy(ep.state.v, y + 3, 3 * sizeof(double));
+                // Taylor interpolation from current integrated state.
+                // r(t+δ) ≈ r(t) + v(t)*δ + ½a(t)*δ²
+                // v(t+δ) ≈ v(t) + a(t)*δ
+                // where δ = (next_output - t) in seconds.
+                // This is 2nd-order accurate, suitable for output
+                // spacing << integration step.
+                double delta_s = (next_output - t) * SEC_PER_DAY;
+                // Compute acceleration at current state for interpolation
+                double a_interp[3] = {0.0, 0.0, 0.0};
+                double r_mag = std::sqrt(y[0]*y[0] + y[1]*y[1] + y[2]*y[2]);
+                double r3_inv = 1.0 / (r_mag * r_mag * r_mag);
+                for (int j = 0; j < 3; j++) {
+                    a_interp[j] = -MU_EARTH * y[j] * r3_inv;  // two-body term
+                }
+                for (int j = 0; j < 3; j++) {
+                    ep.state.r[j] = y[j] + y[j+3] * delta_s
+                                    + 0.5 * a_interp[j] * delta_s * delta_s;
+                    ep.state.v[j] = y[j+3] + a_interp[j] * delta_s;
+                }
                 ephemeris->push_back(ep);
                 next_output += output_step / SEC_PER_DAY;
             }

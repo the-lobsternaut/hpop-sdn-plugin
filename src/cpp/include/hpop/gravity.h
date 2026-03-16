@@ -57,9 +57,8 @@ private:
     std::vector<std::vector<double>> C_;
     std::vector<std::vector<double>> S_;
 
-    /// Compute acceleration in ECEF frame, then rotate to ECI
-    /// For now, simplified: assume ECI ≈ ECEF (no Earth rotation)
-    /// TODO: Add proper GMST rotation for epoch_jd
+    /// Compute acceleration in ECEF frame
+    /// The calling acceleration() method handles ECI↔ECEF rotation via GMST.
     void accel_ecef(
         const double r_ecef[3],
         double a_ecef[3]) const;
